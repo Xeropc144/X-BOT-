@@ -1,0 +1,9 @@
+discord.py
+requests
+Flask
+python-dotenv
+py-cord
+yt-dlp
+youtube-search-python
+PyNaCl
+imageio-ffmpeg
