@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands, tasks
+from discord import app_commands
 import os
 import requests
 import threading
@@ -10,6 +11,7 @@ import itertools
 import random
 import aiohttp
 import json
+
 
 # === Discord Bot Setup (MUST COME FIRST) ===
 intents = discord.Intents.all()
@@ -111,6 +113,12 @@ async def on_ready():
     await asyncio.sleep(2)  # tiny wait to avoid race conditions
     save_reputation_periodically.start()
     decay_reputation.start()
+
+    try:
+        synced = await bot.tree.sync()
+        print(f"🌐 Synced {len(synced)} slash commands")
+    except Exception as e:
+        print("Slash sync error:", e)
 
 # Increment reputation when a user sends a message
 @bot.event
@@ -705,6 +713,13 @@ async def cmds_list(ctx, page: int = 1, from_reaction: bool = False):
             except:
                 pass
 
+@bot.tree.command(name="activedevbadge", description="Required slash command to qualify for the Active Developer Badge.")
+async def activedevbadge(interaction: discord.Interaction):
+    await interaction.response.send_message(
+        "✅ Slash command registered.\nThis command exists so your bot qualifies for the Active Developer Badge.",
+        ephemeral=True
+    )
+
 # === Start Everything ===
 keep_alive()
 
@@ -726,3 +741,4 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
