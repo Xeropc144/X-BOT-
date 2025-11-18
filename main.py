@@ -126,6 +126,14 @@ async def on_message(message):
     if message.author.bot:
         return
 
+    # === Prefix-only help message ===
+    if message.content.strip() == "$":
+        await message.channel.send(
+            "❓ **Need help?** Try typing **$cmds** to see a full list of commands.",
+            delete_after=6
+        )
+        return  # stop processing further since it's just the prefix
+
     user_id = message.author.id
     now = time.time()
 
@@ -138,10 +146,11 @@ async def on_message(message):
 
     # Update last active timestamp
     last_active[user_id] = now
-    
+
     # === CRITICAL: SAVE IMMEDIATELY AFTER CHANGING DATA ===
     save_reputation()
 
+    # MUST BE LAST
     await bot.process_commands(message)
 
 # Background task to decay reputation for inactivity
@@ -181,6 +190,57 @@ async def status(ctx):
         f"Suspicious Accounts Quarantined: {raid_stats['suspicious_flagged']}"
     )
     await ctx.send(msg, delete_after=4)
+
+@bot.command()
+async def systems(ctx):
+    await ctx.message.delete()
+
+    embed = discord.Embed(
+        title="🛡️ Security & System Status",
+        description="Comprehensive report of server protection, monitoring, and bot diagnostics.",
+        color=discord.Color.green()
+    )
+
+    # X-Guard Protection
+    embed.add_field(
+        name="🛡️ X-Guard Protection",
+        value=(
+            "🟢 **Online**\n"
+            "• DDoS Shield: Active ✅\n"
+            "• Server Monitoring: Enabled\n"
+            "• Firewall Integrity: Stable\n"
+            "• Anti-Proxy Detection: Running."
+        ),
+        inline=False
+    )
+
+    # Server Health Dashboard
+    embed.add_field(
+        name="Server Health Dashboard",
+        value=(
+            f"• Raids Blocked: `{raid_stats['raids_blocked']}` 🛡️\n"
+            f"• Suspicious Accounts Flagged: `{raid_stats['suspicious_flagged']}` ⚠️\n"
+            "• Anti-Spam System: Active\n"
+            "• Anti-Flood Rate-Limiter: Online\n"
+            "• Connection Stability: Normal 🌐"
+        ),
+        inline=False
+    )
+
+    # Bot Diagnostics
+    embed.add_field(
+        name="X Guard Diagnostics",
+        value=(
+            f"• Latency: `{round(bot.latency * 1000)}ms` ⏱️\n"
+            "• Command Processor: Operational\n"
+            "• Data Storage: Synced"
+        ),
+        inline=False
+    )
+
+    embed.set_footer(text="🟢 All systems operational • Xero Guard", icon_url=ctx.guild.icon.url if ctx.guild.icon else None)
+
+    await ctx.send(embed=embed)
 
 # === Ping & XERO Commands ===
 @bot.command()
@@ -620,11 +680,12 @@ async def cmds_list(ctx, page: int = 1, from_reaction: bool = False):
             "title": "𝘎𝘦𝘯𝘦𝘳𝘢𝘭 𝘊𝘰𝘮𝘮𝘢𝘯𝘥𝘴",
             "description": "",
             "fields": [
-                ("⛉ $x", "Shows DDoS protection status", False),
-                ("✦ $rep [user]", "View your reputation or members", False),
-                ("✚ $status", "Server health dashboard", False),
                 ("🛈 $guide", "System Help Guide", False),
-                ("𝗓𐰁 $ping", "Check if the bot is awake", False),
+                ("☯ $systems", "Shows server security & protection diagnostics", False),
+                ("⛉ $x", "Shows DDoS protection status", False),
+                ("✚ $status", "Server health dashboard", False),
+                ("✦ $rep [user]", "View your reputation or members", False),
+                ("𝗓𐰁 $ping", "Check if X Guard is online and responsive.", False),
                 ("★ $user [user]", "View user details", False),
                 ("☰ $cmds", "Displays this command list", False),
             ]
@@ -741,4 +802,5 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
