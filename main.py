@@ -629,7 +629,7 @@ async def guide(ctx):
             "• `$user [@user]` - View user information\n"
             "• `$status` - Server health dashboard\n"
             "• `$ping` - Check bot responsiveness\n"
-            "• `$systems` - Comprhensive detailed report of server protection\n"
+            "• `$systems` - Comprehensive detailed report of server protection\n"
             "• `$save` - Manual data backup (Admin only)"
         ),
         inline=False
@@ -800,6 +800,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
