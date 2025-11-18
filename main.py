@@ -203,13 +203,13 @@ async def systems(ctx):
 
     # X-Guard Protection
     embed.add_field(
-        name="🛡️ X-Guard Protection",
+        name="🛡️ 𝘟 𝘎𝘶𝘢𝘳𝘥 Protection",
         value=(
             "🟢 **Online**\n"
-            "• DDoS Shield: Active ✅\n"
-            "• Server Monitoring: Enabled ✅\n"
-            "• Firewall Integrity: Stable ✅\n"
-            "• Anti-Proxy Detection: Running. ✅"
+            "• DDoS Shield: Active ✔\n"
+            "• Server Monitoring: Enabled ✔\n"
+            "• Firewall Integrity: Stable ✔\n"
+            "• Anti-Proxy Detection: Running. ✔"
         ),
         inline=False
     )
@@ -220,7 +220,7 @@ async def systems(ctx):
         value=(
             f"• Raids Blocked: `{raid_stats['raids_blocked']}`\n"
             f"• Suspicious Accounts Flagged: `{raid_stats['suspicious_flagged']}`\n"
-            "• Anti-Spam System: Active\n"
+            "• Anti-Spam System: Active ✔\n"
             "• Connection Stability: Normal 🌐"
         ),
         inline=False
@@ -228,7 +228,7 @@ async def systems(ctx):
 
     # Bot Diagnostics
     embed.add_field(
-        name="X Guard Diagnostics",
+        name="𝘟 𝘎𝘶𝘢𝘳𝘥 Diagnostics",
         value=(
             f"• Latency: `{round(bot.latency * 1000)}ms`\n"
             "• Command Processor: Operational\n"
@@ -237,7 +237,7 @@ async def systems(ctx):
         inline=False
     )
 
-    embed.set_footer(text="🟢 All systems operational • 𝘟 𝘎𝘶𝘢𝘳𝘥", icon_url=ctx.guild.icon.url if ctx.guild.icon else None)
+    embed.set_footer(text="🟢 All systems operational • ✘", icon_url=ctx.guild.icon.url if ctx.guild.icon else None)
 
     await ctx.send(embed=embed)
 
@@ -591,8 +591,8 @@ async def guide(ctx):
     await ctx.message.delete()
     
     embed = discord.Embed(
-        title="🛡️ X-Guard - System Help Guide",
-        description="Learn how X-Guard works and how to use its features effectively.",
+        title="🛡️ System Help Guide",
+        description="Learn how 𝘟 𝘎𝘶𝘢𝘳𝘥 works and how to use its features effectively.",
         color=discord.Color.blue()
     )
     
@@ -629,7 +629,7 @@ async def guide(ctx):
             "• `$user [@user]` - View user information\n"
             "• `$status` - Server health dashboard\n"
             "• `$ping` - Check bot responsiveness\n"
-            "• `$x` - DDoS protection status\n"
+            "• `$systems` - Comprhensive detailed report of server protection\n"
             "• `$save` - Manual data backup (Admin only)"
         ),
         inline=False
@@ -800,6 +800,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
