@@ -593,22 +593,23 @@ async def update(ctx):
             "**🔧 Current Update Version:** v1.0.3\n"
             "**Enhancements:**\n"
             "• Optimized backend performance for faster command execution\n"
-            "• Improved event listeners for more stable uptime\n"
+            "• Improved certain events for more stable uptime\n"
             "• Refined internal task loops for better resource handling\n"
             "• Added deeper diagnostic logging for advanced debugging\n\n"
             "**New Features:**\n"
             "• Added `$systems` to view current status\n"
             "• Expanded configuration options for future modules\n\n"
             "**General Improvements:**\n"
+            "• Improved DDoS protection logic for high-traffic events\n"
+            "• Smarter cooldown management to prevent overloads\n"
             "• Cleanup across multiple modules\n"
             "• Enhanced error handling & fallback responses\n"
-            "• UI polish for embeds and output formatting\n\n"
+            "• UI polish for embeds and formatting\n\n"
             "**Status:** 𝘟 𝘎𝘶𝘢𝘳𝘥 is running smoother than ever 🛦"
         ),
         color=discord.Color.blue()
     )
 
-    embed.set_footer(text="𝘟 𝘎𝘶𝘢𝘳𝘥 is the strongest.")
     await ctx.send(embed=embed)
     
 @bot.command()
@@ -827,6 +828,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
