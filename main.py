@@ -130,7 +130,7 @@ async def on_message(message):
     if message.content.strip() == "$":
         await message.channel.send(
             "❓ **Need help?** Try typing **$cmds** to see a full list of commands.",
-            delete_after=6
+            delete_after=30
         )
         return  # stop processing further since it's just the prefix
 
@@ -828,6 +828,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
