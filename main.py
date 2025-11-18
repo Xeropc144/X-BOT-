@@ -585,6 +585,32 @@ async def x(ctx):
     )
     await ctx.send(message, delete_after=4)
 
+@bot.command(name="updates")
+async def update(ctx):
+    embed = discord.Embed(
+        title="𝘟 𝘎𝘶𝘢𝘳𝘥 Patch Notes",
+        description=(
+            "**🔧 Current Update Version:** v1.0.3\n"
+            "**Enhancements:**\n"
+            "• Optimized backend performance for faster command execution\n"
+            "• Improved event listeners for more stable uptime\n"
+            "• Refined internal task loops for better resource handling\n"
+            "• Added deeper diagnostic logging for advanced debugging\n\n"
+            "**New Features:**\n"
+            "• Added `$systems` to view current status\n"
+            "• Expanded configuration options for future modules\n\n"
+            "**General Improvements:**\n"
+            "• Cleanup across multiple modules\n"
+            "• Enhanced error handling & fallback responses\n"
+            "• UI polish for embeds and output formatting\n\n"
+            "**Status:** 𝘟 𝘎𝘶𝘢𝘳𝘥 is running smoother than ever 🛦"
+        ),
+        color=discord.Color.blue()
+    )
+
+    embed.set_footer(text="𝘟 𝘎𝘶𝘢𝘳𝘥 is the strongest.")
+    await ctx.send(embed=embed)
+    
 @bot.command()
 async def guide(ctx):
     """Get detailed information about the bot's systems"""
@@ -679,9 +705,10 @@ async def cmds_list(ctx, page: int = 1, from_reaction: bool = False):
             "description": "",
             "fields": [
                 ("🛈 $guide", "System Help Guide", False),
-                ("☯ $systems", "Shows server security & protection diagnostics", False),
+                ("↻ $updates", "View Current Update Patch on 𝘟 𝘎𝘶𝘢𝘳𝘥", False),
+                ("☯ $systems", "Shows Server Security & Protection Diagnostics", False),
                 ("⛉ $x", "Shows DDoS protection status", False),
-                ("✚ $status", "Server health dashboard", False),
+                ("✚ $status", "Server Health Dashboard", False),
                 ("✦ $rep [user]", "View your reputation or members", False),
                 ("𝗓𐰁 $ping", "Check if X Guard is online and responsive.", False),
                 ("★ $user [user]", "View user details", False),
@@ -800,6 +827,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
