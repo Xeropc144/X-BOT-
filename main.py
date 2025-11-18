@@ -197,7 +197,7 @@ async def systems(ctx):
 
     embed = discord.Embed(
         title="🛡️ Security & System Status",
-        description="Comprehensive report of server protection, monitoring, and bot diagnostics.",
+        description="Detailed report of server protection, monitoring, and 𝘟 𝘎𝘶𝘢𝘳𝘥 diagnostics.",
         color=discord.Color.green()
     )
 
@@ -207,9 +207,9 @@ async def systems(ctx):
         value=(
             "🟢 **Online**\n"
             "• DDoS Shield: Active ✅\n"
-            "• Server Monitoring: Enabled\n"
-            "• Firewall Integrity: Stable\n"
-            "• Anti-Proxy Detection: Running."
+            "• Server Monitoring: Enabled ✅\n"
+            "• Firewall Integrity: Stable ✅\n"
+            "• Anti-Proxy Detection: Running. ✅"
         ),
         inline=False
     )
@@ -218,10 +218,9 @@ async def systems(ctx):
     embed.add_field(
         name="Server Health Dashboard",
         value=(
-            f"• Raids Blocked: `{raid_stats['raids_blocked']}` 🛡️\n"
-            f"• Suspicious Accounts Flagged: `{raid_stats['suspicious_flagged']}` ⚠️\n"
+            f"• Raids Blocked: `{raid_stats['raids_blocked']}`\n"
+            f"• Suspicious Accounts Flagged: `{raid_stats['suspicious_flagged']}`\n"
             "• Anti-Spam System: Active\n"
-            "• Anti-Flood Rate-Limiter: Online\n"
             "• Connection Stability: Normal 🌐"
         ),
         inline=False
@@ -231,14 +230,14 @@ async def systems(ctx):
     embed.add_field(
         name="X Guard Diagnostics",
         value=(
-            f"• Latency: `{round(bot.latency * 1000)}ms` ⏱️\n"
+            f"• Latency: `{round(bot.latency * 1000)}ms`\n"
             "• Command Processor: Operational\n"
-            "• Data Storage: Synced"
+            "• Data Storage: Synced ⟳"
         ),
         inline=False
     )
 
-    embed.set_footer(text="🟢 All systems operational • Xero Guard", icon_url=ctx.guild.icon.url if ctx.guild.icon else None)
+    embed.set_footer(text="🟢 All systems operational • 𝘟 𝘎𝘶𝘢𝘳𝘥", icon_url=ctx.guild.icon.url if ctx.guild.icon else None)
 
     await ctx.send(embed=embed)
 
@@ -592,41 +591,40 @@ async def guide(ctx):
     await ctx.message.delete()
     
     embed = discord.Embed(
-        title="🛡️ 𝘟 𝘎𝘶𝘢𝘳𝘥 - System Help Guide",
-        description="Learn how the bot's systems work and how to use them effectively",
+        title="🛡️ X-Guard - System Help Guide",
+        description="Learn how X-Guard works and how to use its features effectively.",
         color=discord.Color.blue()
     )
     
-    # Reputation System Section
+    # Reputation System
     embed.add_field(
-        name="📊 **Reputation System**",
+        name="Reputation System",
         value=(
-            "**How it works:**\n"
-            "• Gain **1+ reputation points** for each message you send\n"
-            "• **Longer messages** give more points (1 point per 10 characters)\n"
-            "• **Inactive users** lose 5 points every 30 minutes\n"
-            "• **Minimum reputation** is 100 points\n"
-            "• Check your reputation with `$rep`\n"
-            "• **Your reputation represents your activity level** in the server"
+            "• Gain **1+ reputation points** for each message you send.\n"
+            "• Longer messages give more points (1 point per 10 characters).\n"
+            "• Inactive users lose 5 points every 30 minutes.\n"
+            "• Minimum reputation: 100 points.\n"
+            "• Check your reputation with `$rep`.\n"
+            "• Your reputation reflects your activity in the server."
         ),
         inline=False
     )
     
-    # Moderation Section
+    # Moderation Features
     embed.add_field(
-        name="⚖️ **𝘟 𝘎𝘶𝘢𝘳𝘥 Auto Moderation (Built-In)**",
+        name="Moderation",
         value=(
-            "• Anti-Nuke Protection\n"
+            "• Anti-Nuke protection\n"
             "• Raid detection system\n"
-            "• Suspicious account monitoring"
-            "• & more\n"
+            "• Suspicious account monitoring\n"
+            "• Auto-moderation of spam & malicious activity"
         ),
         inline=False
     )
     
-    # Utility Section
+    # Utility Commands
     embed.add_field(
-        name="🔧 **Utility Commands**",
+        name="Utility Commands",
         value=(
             "• `$user [@user]` - View user information\n"
             "• `$status` - Server health dashboard\n"
@@ -637,26 +635,26 @@ async def guide(ctx):
         inline=False
     )
     
-    # Entertainment Section
+    # Fun & Entertainment
     embed.add_field(
-        name="🎮 **Entertainment**",
+        name="Fun & Entertainment",
         value=(
             "• `$joke` - Get a random joke\n"
             "• `$coinflip` - Flip a coin\n"
             "• `$dice [sides]` - Roll dice\n"
-            "• `$meme` - Random meme\n"
+            "• `$meme` - Get a random meme"
         ),
         inline=False
     )
     
-    # Bot Status Section
+    # Bot Status
     embed.add_field(
-        name="🤖 **Status**",
+        name="Bot Status",
         value=(
-            "• **24/7 operation** with auto-recovery\n"
-            "• **Data automatically saved** multiple times\n"
-            "• **Periodic maintenance** every 30 minutes\n"
-            "• **Uptime monitoring** with health checks"
+            "• Runs 24/7 with auto-recovery\n"
+            "• Data automatically saved periodically\n"
+            "• Maintenance checks every 30 minutes\n"
+            "• Full uptime and health monitoring"
         ),
         inline=False
     )
@@ -802,5 +800,6 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
