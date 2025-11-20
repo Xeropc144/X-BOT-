@@ -26,22 +26,21 @@ async def dev(ctx):
         description=(
             "**xero is now officially a Python Developer with Discord! 🤝**\n\n"
 
-            "We showcased the true strength of **X-Guard**, to our community and now advanced toward Discord's team. "
+            "We showcased the true strength of **X-Guard**, to our community and advanced to Discord's team. "
             "A next-generation protection system engineered to safeguard every server it operates in.\n\n"  # Separate paragraph
 
             "**__X-Guard’s Mission__**\n"
             "To protect you, the server, and every member inside it — without fail.\n\n"
 
             "**__How X-Guard Operates__**\n"
-            "X-Guard constantly monitors and takes action of the current server environment for ANY suspicious activity: "
+            "*X-Guard* constantly monitors and takes action of the current server environment for ANY suspicious activity: "
             "role changes, permission changes, server name edits, infiltration attempts "
             "compromised accounts, abuse patterns, or anything that seems abnormal.\n\n"
 
-            "**From years of research, testing, and development** — **X-Guard** is born. "
+            "**From years of research, testing, and development** — *X-Guard* is born. "
             "advanced all-in-one security systems designed for Discord.\n\n"
 
             "**Thank you Discord** for your support, resources, and cooperation to make this reality.\n\n"
-            "`Sincerely xero`"
         ),
         color=0x5865F2  # Discord blurple
     )
@@ -864,6 +863,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
