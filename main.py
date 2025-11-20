@@ -24,10 +24,10 @@ async def dev(ctx):
     embed = discord.Embed(
         title="Official Python Developer",
         description=(
-            "**xero is now officially a Python Developer with Discord 🤝** "
+            "**xero is now officially a Python Developer with Discord! 🤝**\n\n"
 
-            "We showcased the true strength of **X-Guard**, to our community and now advanced toward Discord's team. a next-generation protection system "
-            "engineered to safeguard every server it operates in.\n\n"
+            "We showcased the true strength of **X-Guard**, to our community and now advanced toward Discord's team. "
+            "A next-generation protection system engineered to safeguard every server it operates in.\n\n"  # Separate paragraph
 
             "**__X-Guard’s Mission__**\n"
             "To protect you, the server, and every member inside it — without fail.\n\n"
@@ -41,7 +41,7 @@ async def dev(ctx):
             "advanced all-in-one security systems designed for Discord.\n\n"
 
             "**Thank you Discord** for your support, resources, and cooperation to make this reality.\n\n"
-            "`~xero`"
+            "`xero`"
         ),
         color=0x5865F2  # Discord blurple
     )
@@ -632,7 +632,7 @@ async def update(ctx):
             "• Added deeper diagnostic logging for advanced debugging\n\n"
             "**New Features:**\n"
             "• Added `$systems` to view current status\n"
-            "• Added `$dev` a written statement from xero\n"
+            "• Added `$dev` Written statement from xero\n"
             "• Expanded configuration options for future modules\n\n"
             "**General Improvements:**\n"
             "• Improved DDoS protection logic for high-traffic events\n"
@@ -864,6 +864,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
