@@ -37,16 +37,16 @@ async def dev(ctx):
             "role changes, permission changes, server name edits, infiltration attempts "
             "compromised accounts, abuse patterns, or anything that seems abnormal.\n\n"
 
-            "**From years of research, testing, and development** — X-Guard is born. "
+            "**From years of research, testing, and development** — **X-Guard** is born. "
             "advanced all-in-one security systems designed for Discord.\n\n"
 
             "**Thank you Discord** for your support, resources, and cooperation to make this reality.\n\n"
-            "`xero`"
+            "`Sincerely xero`"
         ),
         color=0x5865F2  # Discord blurple
     )
 
-    embed.set_thumbnail(url="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDaK1XdUso6cUMpI9hAdPUU_FNs11cY1X284vsHrnWtRw7oqRpN1m9YAg21d_aNKnIo-&format=source")
+    embed.set_thumbnail(url="https://i.redd.it/tswry4vw56z91.png")
     embed.set_image(url="https://cdn.discordapp.com/attachments/1439933176632971335/1441034174092939405/6274f70e2c0c5006973b422aa758ed5a1.png?ex=69205328&is=691f01a8&hm=3989a4c6db73a60513958328ead1eeaeb1369f9165f04a8a4274f067e8720653&")
     embed.set_footer(text="Powered by 𝘟 𝘎𝘶𝘢𝘳𝘥")
 
@@ -864,6 +864,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
