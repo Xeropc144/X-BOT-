@@ -25,30 +25,29 @@ async def dev(ctx):
         title="Official Python Developer",
         description=(
             "**xero is now officially a Python Developer with Discord 🤝** "
-            "and has been acknowledged by Discord's team for his project.\n\n"
 
-            "We showcased the true strength of **X-Guard**, to our community and now advanced to Discord's team, a next-generation protection system"
+            "We showcased the true strength of **X-Guard**, to our community and now advanced toward Discord's team. a next-generation protection system "
             "engineered to safeguard every server it operates in.\n\n"
 
             "**__X-Guard’s Mission__**\n"
-            "To protect you, the server, and every member within it — without fail.\n\n"
+            "To protect you, the server, and every member inside it — without fail.\n\n"
 
             "**__How X-Guard Operates__**\n"
             "X-Guard constantly monitors and takes action of the current server environment for ANY suspicious activity: "
             "role changes, permission changes, server name edits, infiltration attempts "
             "compromised accounts, abuse patterns, or anything that seems abnormal.\n\n"
 
-            "**From years of research, testing, and development** — X-Guard is born"
+            "**From years of research, testing, and development** — X-Guard is born. "
             "advanced all-in-one security systems designed for Discord.\n\n"
 
-            "**Thank you Discord** for its support, resources, and cooperation to make this reality.\n\n"
-            "~ **xero**"
+            "**Thank you Discord** for your support, resources, and cooperation to make this reality.\n\n"
+            "`~xero`"
         ),
         color=0x5865F2  # Discord blurple
     )
 
     embed.set_thumbnail(url="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxsG72wAo9EWJR4yQWyJJaDaK1XdUso6cUMpI9hAdPUU_FNs11cY1X284vsHrnWtRw7oqRpN1m9YAg21d_aNKnIo-&format=source")
-    embed.set_image(url="https://cdn.discordapp.com/app-icons/1154828459021979831/6274f70e2c0c5006973b422aa758ed5a.png?size=256&quot;);")
+    embed.set_image(url="https://cdn.discordapp.com/attachments/1439933176632971335/1441034174092939405/6274f70e2c0c5006973b422aa758ed5a1.png?ex=69205328&is=691f01a8&hm=3989a4c6db73a60513958328ead1eeaeb1369f9165f04a8a4274f067e8720653&")
     embed.set_footer(text="Powered by 𝘟 𝘎𝘶𝘢𝘳𝘥")
 
     await ctx.send(embed=embed)
@@ -625,7 +624,7 @@ async def update(ctx):
     embed = discord.Embed(
         title="𝘟 𝘎𝘶𝘢𝘳𝘥 Patch Notes",
         description=(
-            "**🔧 Current Update Version:** v1.0.3\n"
+            "**🔧 Current Update Version:** v1.0.4\n"
             "**Enhancements:**\n"
             "• Optimized backend performance for faster command execution\n"
             "• Improved certain events for more stable uptime\n"
@@ -633,6 +632,7 @@ async def update(ctx):
             "• Added deeper diagnostic logging for advanced debugging\n\n"
             "**New Features:**\n"
             "• Added `$systems` to view current status\n"
+            "• Added `$dev` a written statement from xero\n"
             "• Expanded configuration options for future modules\n\n"
             "**General Improvements:**\n"
             "• Improved DDoS protection logic for high-traffic events\n"
@@ -748,7 +748,7 @@ async def cmds_list(ctx, page: int = 1, from_reaction: bool = False):
                 ("✦ $rep [user]", "View your reputation or members", False),
                 ("𝗓𐰁 $ping", "Check if X Guard is online and responsive.", False),
                 ("★ $user [user]", "View user details", False),
-                ("🛠 $dev", "Written statement from xero", False),
+                ("❇ $dev", "Written statement from xero", False),
                 ("☰ $cmds", "Displays this command list", False),
             ]
         },
@@ -864,6 +864,7 @@ if not token:
     print("❌ ERROR: TOKEN environment variable not set! Please add it in Replit Secrets.")
 else:
     bot.run(token)
+
 
 
 
